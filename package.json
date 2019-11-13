@@ -1,0 +1,24 @@
+{
+  "name": "webpackdemo",
+  "version": "1.0.0",
+  "description": "webpack4",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XJL/webpack-demo.git"
+  },
+  "author": "Jerry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/XJL/webpack-demo/issues"
+  },
+  "homepage": "https://github.com/XJL/webpack-demo#readme",
+  "devDependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}

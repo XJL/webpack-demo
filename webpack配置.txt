@@ -1,0 +1,30 @@
+# 配置
+1. 需要webpack.config.js
+2. 配置入口、出口
+    a. entry
+    b. output
+    c. path.resolve
+3. 多个入口
+    a. 单入口
+        单文件整合到bundle.js
+            entry: './src/index.js'
+        多文件整合到一个chunk文件
+            entry: ['./src/index.', './src/index2js']
+    b. 多入口
+        entry: {
+            page1: "./src/page1/index.js",
+            page2: "./src/page2/index.js"
+        }
+4. 多个出口
+    单个出口
+        output: {
+            path: path.resolve(__dirname,'dist'),
+            filename:'bundle.js'
+        }
+    多个出口
+        output: {
+            path: path.resolve(__dirname,'dist'),
+            filename:'[name].js' // name是对应的多入口文件命名时的key值
+        }
+
+

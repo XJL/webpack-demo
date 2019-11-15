@@ -4,27 +4,42 @@
     a. entry
     b. output
     c. path.resolve
-3. 多个入口
-    a. 单入口
-        单文件整合到bundle.js
-            entry: './src/index.js'
-        多文件整合到一个chunk文件
-            entry: ['./src/index.', './src/index2js']
-    b. 多入口
-        entry: {
-            page1: "./src/page1/index.js",
-            page2: "./src/page2/index.js"
+
+    1. 多个入口
+        a. 单入口
+            单文件整合到bundle.js
+                entry: './src/index.js'
+            多文件整合到一个chunk文件
+                entry: ['./src/index.', './src/index2js']
+        b. 多入口
+            entry: {
+                page1: "./src/page1/index.js",
+                page2: "./src/page2/index.js"
+            }
+    2. 多个出口
+        单个出口
+            output: {
+                path: path.resolve(__dirname,'dist'),
+                filename:'bundle.js'
+            }
+        多个出口
+            output: {
+                path: path.resolve(__dirname,'dist'),
+                filename:'[name].js' // name是对应的多入口文件命名时的key值
+            }
+3. 配置webpack server
+    配置一个方便开发的一个本地服务器，把打包好的资源部署到本地服务器上。
+
+    1. 作用：
+        1. 可以在本地为打包出来的资源包提供web服务
+        2. 提供自动刷新和热替换（HMR）
+    2. 配置
+        devServer: {
+            contentBase: './build', // 服务器访问的目录，一般只想打包完的出口目录
+            host: 'localhost', // 服务器的ip地址
+            port: 8000, //服务器端口
+            open: true // 运行时自动打开页面
         }
-4. 多个出口
-    单个出口
-        output: {
-            path: path.resolve(__dirname,'dist'),
-            filename:'bundle.js'
-        }
-    多个出口
-        output: {
-            path: path.resolve(__dirname,'dist'),
-            filename:'[name].js' // name是对应的多入口文件命名时的key值
-        }
+
 
 

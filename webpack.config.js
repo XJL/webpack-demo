@@ -31,5 +31,16 @@ module.exports = {
         host: 'localhost', // 服务器的ip地址
         port: 8000, // 服务器端口
         open: true // 运行时自动打开页面
+    },
+
+
+    // 配置loader
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            }
+        ]
     }
 };

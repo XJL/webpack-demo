@@ -1,1 +1,1 @@
-console.log('index123');
+console.log('index');

@@ -1,0 +1,14 @@
+# Loader
+    webpack是一个js的静态资源打包器，Loader就可以把任何语言的文件转换成webpack可以理解的语言。
+1. 加载css
+    1. 需要npm下载css-loader和style-loader
+    2. 在webpack.config.js文件配置上相关的应用规则
+        a. module: {rules: [{...}]} 在rules里添加规则
+            rules里的执行顺序是从右往左
+        b. 需要配置两个属性
+            1. test 表明要匹配的文件名的规则，正则表达式
+            2. use  指明要用什么Loader去加载这些文件，可以是数组，对于css需要用['style-loader','css-loader']，顺序不可以乱。
+                原因是css-loader需要先将css代码解析完成后，再交给style-loader去把解析后的代码插入到html中。所以顺序不可乱。
+    3. 如何编译less、sass
+
+

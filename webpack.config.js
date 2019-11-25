@@ -39,11 +39,44 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: ['style-loader', 'css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: [
+                                require('autoprefixer')
+                                    // ({
+                                    //     browsers: [// 这样写比较旧了 会导致一些错误 请用browserslist在package.json或者.browserslistrc file中定义这些内容
+                                    //         'ie >= 8',
+                                    //         'Firefox >= 20',
+                                    //         'Safari >= 5',
+                                    //         'Android >= 4',
+                                    //         'ios >= 6',
+                                    //         'last 4 version'
+                                    //     ]
+                                    // })
+                            ]
+                        }
+                    }
+                ]
             },
             {
                 test: /\.less$/,
                 use: ['style-loader', 'css-loader', 'less-loader']
+            },
+            {
+                test: /\.(png|jpg|gif|jpeg)/,
+                // use: 'file-loader',
+                use: [{
+                    // [hash]、 [path], [ext]、 [name]配合使用
+                    loader: 'file-loader',
+                    options: {
+                        name: 'baidu.[ext]', // 生成文件名字
+                        // context: '../', // 上下文 默认是webpack.config.js的当前路径
+                        // publicPath: 'https://www.abc.com/img/', // 发布后访问的文件的目录
+                        outputPath: './img' // 在指定的output输出目录，会在build文件夹下生成相对应的目录，然后里面存放文件
+                    }
+                }]
             }
         ]
     }

@@ -10,5 +10,14 @@
             2. use  指明要用什么Loader去加载这些文件，可以是数组，对于css需要用['style-loader','css-loader']，顺序不可以乱。
                 原因是css-loader需要先将css代码解析完成后，再交给style-loader去把解析后的代码插入到html中。所以顺序不可乱。
     3. 如何编译less、sass
+    4. 如何使用postcss自动添加浏览器前缀
+        a. 在webpack.config.js中添加browsers信息
+        b. 或者在package.json中添加browsers信息
+    5. 其他文件处理
+        a. 图片处理
+            file-loader
+        b. 字体文件处理
+        c. 第三方js库处理
+
 
 

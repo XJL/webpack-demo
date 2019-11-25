@@ -26,5 +26,18 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
-  }
+  },
+  "dependencies": {
+    "autoprefixer": "^9.7.2",
+    "file-loader": "^5.0.2",
+    "postcss-loader": "^3.0.0"
+  },
+  "browserslist": [
+    "ie >= 8",
+    "Firefox >= 20",
+    "Safari >= 5",
+    "Android >= 4",
+    "ios >= 6",
+    "last 4 version"
+  ]
 }

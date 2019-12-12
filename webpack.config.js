@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     // 单入口、单出口
@@ -79,5 +80,21 @@ module.exports = {
                 }]
             }
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: "./public/index.html",
+            filename: "index.html",
+            minify: {
+                minimize: true, // 压缩
+                removeAttributeQuotes: true, // 去除引号
+                removeComments: true, // 去除注释
+                collapseWhitespace: true, // 去除空格 包括换行空格
+                minifyCSS: true, // 压缩html里的css
+                minifyJS: true, // 压缩html里的js
+                removeEmptyElements: true // 移除空元素
+            },
+            hash: true // 在引用的bundle文件后添加hash值，用以防止缓存。
+        })
+    ]
 };

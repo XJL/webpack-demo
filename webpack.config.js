@@ -34,7 +34,8 @@ module.exports = {
         contentBase: './build', // 服务器访问的目录，一般只想打包完的出口目录
         host: 'localhost', // 服务器的ip地址
         port: 8000, // 服务器端口
-        open: true // 运行时自动打开页面
+        open: true, // 运行时自动打开页面,
+        hotOnly: true
     },
 
 
@@ -68,7 +69,8 @@ module.exports = {
                 test: /\.css$/,
                 // use: ['style-loader', 'css-loader'],
                 use: [
-                    MiniCSSExtractPlugin.loader,
+                    // MiniCSSExtractPlugin.loader,
+                    'style-loader',
                     "css-loader",
                     {
                         loader: 'postcss-loader',
@@ -99,13 +101,13 @@ module.exports = {
                 }]
             },
             {
-                test: /\.(html)$/,
-                use: {
+                test: /\.(html|htm)$/,
+                use: [{
                     loader: 'html-loader',
                     options: {
                         attrs: ['img:src']
                     }
-                }
+                }]
             },
         ]
     },
@@ -135,6 +137,6 @@ module.exports = {
                 preset: ['default', {discardComments: {removeAll: true}}] // 表示清全部注释
             },
             canPrint: true // 是否可以在console打印信息
-        }),
+        })
     ]
 };

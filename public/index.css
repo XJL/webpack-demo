@@ -1,0 +1,17 @@
+
+#header {
+  display: flex;
+}
+
+body {
+  background: url('./baidu.png');
+}
+
+
+/*@width: 10px;*/
+/*@height: @width + 20px;*/
+
+/*#header {*/
+/*  width: @width;*/
+/*  height: @height;*/
+/*}*/
